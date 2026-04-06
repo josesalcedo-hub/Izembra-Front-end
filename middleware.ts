@@ -1,19 +1,20 @@
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
-import { isAuthenticated } from "./app/Utils/Auth";
 
 //Rutas protegidas
-const protectedRoutes = ["/Profile", "/portafolio", "cuenta"];
+const protectedRoutes = ["/Profile", "/portafolio", "/Cuenta"];
 
 export function middleware(request: NextRequest) {  
   /*Logica para la Autenticacion (Cookie)*/
 
+  const token = request.cookies.get('tokenAuthorized')?.value;
+
   const { pathname } = request.nextUrl;
   if (
     protectedRoutes.some((route) => pathname.startsWith(route)) &&
-    !isAuthenticated
+    !token
   )
-    return NextResponse.redirect(new URL("/", request.url));
+    return NextResponse.redirect(new URL("/SingIn", request.url));
 
   return NextResponse.next();
 }
