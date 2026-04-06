@@ -1,12 +1,15 @@
 import Link from "next/link";
-export default function Menu({ open, setOpen }: any) {
+import { useUiStore } from "../store/uiStore";
+export default function Menu() {
+  const isMenuOpen = useUiStore((state) => state.isMenuOpen);
+  const closeMenu = useUiStore((state) => state.closeMenu);
   return (
     <ul
-      className={`fixed inset-0 z-50 w-4/5 flex flex-col bg-white/95 p-8 gap-8 transition-transform duration-300 ease-out rounded-tr-xl rounded-br-xl ${open ? "translate-x-0" : "-translate-x-full"}`}
+      className={`fixed inset-0  lg:relative lg:flex-nowrap lg:w-fit  z-50 w-4/5  flex flex-col lg:flex-row bg-white/95 lg:bg-transparent p-8 lg:p-0 gap-8 transition-transform duration-300 ease-out rounded-tr-xl rounded-br-xl lg:translate-x-0 ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
     >
-      <div className="flex justify-between pb-5 border-b border-[#24456F]/20">
+      <div className="lg:hidden flex justify-between pb-5 border-b border-[#24456F]/20">
         <img src="/Logo/Prueba3.png" alt="" className="w-1/3" />
-        <button onClick={() => setOpen(false)}>
+        <button onClick={closeMenu} className="lg:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -21,7 +24,7 @@ export default function Menu({ open, setOpen }: any) {
       </div>
       <nav>
         <ul
-          className={`text-lg font-light flex flex-col gap-6 rounded-tr-2xl text-[#24456F] `}
+          className={`text-lg font-light flex flex-col lg:flex-row gap-6 rounded-tr-2xl text-[#24456F] lg:text-white `}
         >
           <Link href={"/"}>
             <li className="rounded-md transition-all duration-150 hover:bg-[#24456F]/10 px-2 py-2">
@@ -39,9 +42,11 @@ export default function Menu({ open, setOpen }: any) {
           <li className="rounded-lg transition-all duration-150 hover:bg-[#24456F]/10 px-2 py-2">
             Ayuda
           </li>
-          <li className="rounded-lg transition-all duration-150 hover:bg-[#24456F]/10 px-2 py-2">
-            Cuenta
-          </li>
+          <Link href={"/SingUp"}>
+            <li className="rounded-lg transition-all duration-150 hover:bg-[#24456F]/10 px-2 py-2">
+              Cuenta
+            </li>
+          </Link>
         </ul>
       </nav>
     </ul>

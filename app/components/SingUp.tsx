@@ -23,7 +23,7 @@ export default function SingUp() {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const res = await SendData(form);
@@ -43,7 +43,7 @@ export default function SingUp() {
 
   return (
     <div
-      className={`${montserrat.className} w-full h-screen fixed backdrop-blur-xs flex flex-col justify-start items-center bg-[url(/bg/fondo.webp)] pt-5 `}
+      className={`${montserrat.className} w-full h-screen flex flex-col justify-start items-center pt-5 `}
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
@@ -66,40 +66,45 @@ export default function SingUp() {
             name="name"
             value={form.name}
             onChange={handleChanges}
-            className="w-full text-xs tracking-[.8px] text-[#24456F] h-11 pl-4 bg-[#E8E8E8] rounded-sm"
+            className="w-full text-xs tracking-[.8px] text-[#24456F] h-11 pl-4 bg-[#E8E8E8] rounded-sm transition-all duration-150 ease-in focus:ring-2 focus:ring-white/90 focus:outline-none"
             placeholder="Nombre"
+            autoComplete="off"
           />
           <input
             type="text"
             name="lastname"
             value={form.lastname}
             onChange={handleChanges}
-            className="w-full text-xs tracking-[.8px] text-[#24456F] h-11 pl-4 bg-[#E8E8E8] rounded-sm"
+            className="w-full text-xs tracking-[.8px] text-[#24456F] h-11 pl-4 bg-[#E8E8E8] rounded-sm transition-all duration-150 ease-in focus:ring-2 focus:ring-white/90 focus:outline-none"
             placeholder="Apellido"
+            autoComplete="off"
           />
           <input
             type="email"
             name="email"
             value={form.email}
             onChange={handleChanges}
-            className="w-full text-xs tracking-[.8px] text-[#24456F] h-11 pl-4 bg-[#E8E8E8] rounded-sm"
+            className="w-full text-xs tracking-[.8px] text-[#24456F] h-11 pl-4 bg-[#E8E8E8] rounded-sm transition-all duration-150 ease-in focus:ring-2 focus:ring-white/90 focus:outline-none"
             placeholder="Correo electronico"
+            autoComplete="off"
           />
           <input
             type="password"
             name="password"
             value={form.password}
             onChange={handleChanges}
-            className="w-full text-xs tracking-[.8px] text-[#24456F] h-11 pl-4 bg-[#E8E8E8] rounded-sm"
+            className="w-full text-xs tracking-[.8px] text-[#24456F] h-11 pl-4 bg-[#E8E8E8] rounded-sm transition-all duration-150 ease-in focus:ring-2 focus:ring-white/90 focus:outline-none"
             placeholder="Contraseña"
+            autoComplete="off"
           />
           <input
             type="text"
             name="phone"
             value={form.phone}
             onChange={handleChanges}
-            className="w-full text-xs tracking-[.8px] text-[#24456F] h-11 pl-4 bg-[#E8E8E8] rounded-sm"
+            className="w-full text-xs tracking-[.8px] text-[#24456F] h-11 pl-4 bg-[#E8E8E8] rounded-sm transition-all duration-150 ease-in focus:ring-2 focus:ring-white/90 focus:outline-none"
             placeholder="Teléfono"
+            autoComplete="off"
           />
         </fieldset>
         <button
