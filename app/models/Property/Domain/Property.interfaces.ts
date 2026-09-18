@@ -15,5 +15,11 @@ export interface PropertyCard {
   descripcion: string;
   constructora: string;
   ubicacion:string;
+  portada:string;
+  backimage:string;
   unidades: Unidad[]; 
+}
+
+export interface dataImga{
+  url:string;
 }

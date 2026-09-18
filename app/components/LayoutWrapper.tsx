@@ -1,5 +1,6 @@
 "use client";
 import { useUiStore } from "../store/uiStore";
+import Footer from "./Footer";
 import Header from "./Header";
 import Menu from "./Menu";
 
@@ -13,10 +14,11 @@ export default function LayoutWrapper({
   return (
     <>
       <main
-        className={`${isMenuOpen ? "blur-sm" : ""} bg-[#042544] transition-all duration-300  bg-no-repeat bg-contain w-full h-auto pl-6 pr-6 flex flex-col justify-center items-center gap-4`}
+        className={`${isMenuOpen ? "blur-sm" : ""} transition-all duration-300  bg-no-repeat bg-contain w-full h-auto  flex flex-col  justify-center items-center lg:gap-0 lg:p-0 `}
       >
         <Header />
         {children}
+        <Footer/>
       </main>
       <div className="lg:hidden">
         <Menu />

@@ -9,18 +9,18 @@ export default function Header() {
   return (
     <>
       <header
-        className={`w-full ${isMenuOpen ? "blur-xs" : ""}  flex justify-between items-center  pt-10 lg:pl-22 lg:pr-22`}
+        className={`w-full ${isMenuOpen ? "blur-xs" : ""}  flex justify-between items-center p-4 lg:pt-10 lg:pl-22 lg:pr-22  bg-[#005f6a]`}
       >
         <button onClick={toogle} className="lg:hidden">
           <Image src={"/icons/Menu.png"} alt="Menu" width={31} height={31} />
         </button>
 
         <Image
-          src={"/Logo/Logo.png"}
+          src={"/Logo/Recurso 29xxxhdpi.png"}
           alt="logo principal"
           width={100}
           height={100}
-          className="lg:w-40"
+          className="w-14 lg:w-15"
         />
 
         <Link href={"/SingUp"} className="lg:hidden">
@@ -31,13 +31,7 @@ export default function Header() {
           <Menu />
         </div>
       </header>
-      <Image
-        src={"/Logo/line.png"}
-        alt="Details"
-        width={1000}
-        height={1}
-        className="w-full h-full"
-      />
+     
     </>
   );
 }

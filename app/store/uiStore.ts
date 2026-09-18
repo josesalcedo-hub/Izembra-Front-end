@@ -25,7 +25,7 @@ export const useUiStore = create<UIState>((set) => ({
       const response = await (
         await fetch("http://localhost:3001/api/foundData", {
           method: "GET",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json", "ngrok-skip-browser-warning": "69420" },
           credentials: "include",
           cache: "no-store",
         })
@@ -33,6 +33,8 @@ export const useUiStore = create<UIState>((set) => ({
       if (!response) {
         throw new Error("Error al obtener los datos");
       }
+
+      console.log(response)
       set((state) => ({
         ...state,
         data: response.data,
@@ -47,7 +49,7 @@ export const useUiStore = create<UIState>((set) => ({
       const res = await (
         await fetch(`http://localhost:3001/api/foundData/${id}`, {
           method: "GET",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json", "ngrok-skip-browser-warning": "69420" },
           credentials: "include",
         })
       ).json();
