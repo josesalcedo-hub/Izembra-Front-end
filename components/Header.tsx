@@ -1,4 +1,4 @@
-import { useUiStore } from "../store/uiStore";
+import { useUiStore } from "@/app/store/uiStore";
 import Link from "next/link";
 import Image from "next/image";
 import Menu from "./Menu";

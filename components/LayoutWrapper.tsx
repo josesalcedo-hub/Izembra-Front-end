@@ -1,5 +1,5 @@
 "use client";
-import { useUiStore } from "../store/uiStore";
+import { useUiStore } from "@/app/store/uiStore"; 
 import Footer from "./Footer";
 import Header from "./Header";
 import Menu from "./Menu";

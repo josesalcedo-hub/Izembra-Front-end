@@ -1,6 +1,6 @@
 "use client";
 
-import { useUiStore } from "../store/uiStore";
+import { useUiStore } from "@/app/store/uiStore";
 import { useEffect } from "react";
 import Link from "next/link";
 

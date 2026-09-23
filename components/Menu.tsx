@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useUiStore } from "../store/uiStore";
+import { useUiStore } from "@/app/store/uiStore";
 export default function Menu() {
   const isMenuOpen = useUiStore((state) => state.isMenuOpen);
   const closeMenu = useUiStore((state) => state.closeMenu);

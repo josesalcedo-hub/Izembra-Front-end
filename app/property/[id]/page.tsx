@@ -1,9 +1,10 @@
 "use client";
 
-import LayoutWrapper from "@/app/components/LayoutWrapper";
+import LayoutWrapper from "@/components/LayoutWrapper";
 import { useUiStore } from "@/app/store/uiStore";
 import { useEffect, use, useState } from "react";
 import { dataImga } from "@/app/models/Property/Domain/Property.interfaces";
+import { Slider } from "@/components/ui/slider";
 
 export default function PropertyDetails({
   params,
@@ -42,8 +43,8 @@ export default function PropertyDetails({
 
   return (
     <LayoutWrapper>
-      <section className="w-full flex flex-col items-center bg-[#f2f2f2]">
-        <header className="w-full flex justify-between items-center lg:pl-22 lg:pr-22 lg:mt-28">
+      <section className="w-full flex flex-col items-center bg-[#f2f2f2] lg:pl-22 lg:pr-22 lg:pt-28">
+        <header className="w-full flex justify-between items-center ">
           <div>
             <h1 className="text-4xl text-[#2b2b2b] font-semibold">
               {property.nombre}
@@ -69,7 +70,7 @@ export default function PropertyDetails({
           </div>
         </header>
 
-        <section className="grid grid-cols-2 lg:pl-22 lg:pr-22">
+        <section className="grid grid-cols-2">
           <div className="w-full">
             <div className="w-full flex justify-between pl-6 pr-6 gap-1 relative top-12">
               <button className="bg-[#028989] w-full p-1.5 cursor-pointer text-white font-semibold">
@@ -109,7 +110,7 @@ export default function PropertyDetails({
           </div>
         </section>
 
-        <section className="w-fit lg:pl-22 lg:pr-22 lg:ml-5 mt-10 grid grid-cols-2">
+        <section className="w-fit lg:ml-5 mt-10 grid grid-cols-2">
           <div>
             <h2 className="text-2xl font-semibold">Conoce el proyecto</h2>
             <p className="w-[80%] text-sm mt-4">{property.descripcion}</p>
@@ -119,18 +120,89 @@ export default function PropertyDetails({
               <div>
                 <p className="text-xs">Monto mínimo de inversión</p>
                 <p className="text-3xl font-semibold">
-                  {property.unidades[0].precio_minimo} <span className="text-lg">cop</span>
+                  {property.unidades?.[0]?.precio_minimo}{" "}
+                  <span className="text-lg">cop</span>
                 </p>
               </div>
 
               <div>
                 <p className="text-xs">Separa desde</p>
                 <p className="text-2xl font-semibold">
-                  {property.unidades[0].valor_separacion} <span className="text-lg">cop</span>
+                  {property.unidades?.[0]?.valor_separacion}{" "}
+                  <span className="text-base">cop</span>
                 </p>
               </div>
             </div>
           </div>
+        </section>
+
+        <section className="bg-[#005f6a] w-full mb-5 text-white mt-32">
+          <h2 className="w-full text-center font-semibold tracking-[1px] text-2xl mt-15">
+            Simulador de plan de pago
+          </h2>
+          <div className="grid grid-cols-2">
+            <div className="p-20">
+              <h3>Cuota inicial</h3>
+              <div className="w-[80%] mt-5 ">
+                <div className="flex justify-between mb-3">
+                  <label htmlFor="initial" className="font-medium text-lg">
+                    ${property.unidades?.[0]?.precio_minimo}
+                  </label>
+                  <label
+                    htmlFor=""
+                    className=" text-xs flex flex-col font-medium"
+                  >
+                    $300.000.000 <span>Valor maximo</span>
+                  </label>
+                </div>
+                <Slider />
+
+                <div className="mt-10">
+                  <h3>Separación</h3>
+                  <div className="flex justify-between mt-2 mb-3">
+                    <label htmlFor="initial" className="font-medium text-lg">
+                      ${property.unidades?.[0]?.valor_separacion}
+                    </label>
+                    <label
+                      htmlFor=""
+                      className=" text-xs flex flex-col font-medium"
+                    >
+                      $300.000.000 <span>Valor maximo</span>
+                    </label>
+                  </div>
+                  <Slider />
+                </div>
+
+                <div className="mt-10">
+                  <h3>Cuotas mensuales</h3>
+                  <select name="" id="">
+                    <option value="">1</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-center items-center">
+              <div className="w-[60%] border border-white rounded-lg p-10">
+                  <div className="flex justify-between">
+                    <p>Saldo final</p>
+                    <p>$351.962.500</p>
+                  </div>
+              
+                  <div className="flex justify-between mt-3 font-medium">
+                       <p>Precio total</p>
+                    <p>$351.962.500</p>
+                  </div>
+
+                  <p className="text-xs mt-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos est animi amet, mollitia eaque necessitatibus </p>
+
+                  <button className="bg-[#028989] w-full p-2.5 mt-8 rounded-lg cursor-pointer">Simular</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Equipo del <br/> <span>Proyecto</span></h2>
         </section>
       </section>
     </LayoutWrapper>

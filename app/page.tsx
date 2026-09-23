@@ -1,8 +1,8 @@
-import LayoutWrapper from "./components/LayoutWrapper";
-import Form from "./components/Form";
-import CardList from "./components/CardList";
-import Section from "./components/Section";
-import Invercolombia from "./components/Invercolombia";
+import LayoutWrapper from "@/components/LayoutWrapper";
+import Form from "@/components/Form";
+import CardList from "@/components/CardList";
+import Section from "@/components/Section";
+import Invercolombia from "@/components/Invercolombia";
 
 export default async function Home() {
   return (
